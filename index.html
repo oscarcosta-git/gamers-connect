@@ -407,7 +407,7 @@ const inFull=()=>!!(document.fullscreenElement||document.webkitFullscreenElement
 function syncFs(){$('fsbtn').classList.toggle('hide',isStandalone()||inFull());}
 function goFull(){
   const el=document.documentElement,rq=el.requestFullscreen||el.webkitRequestFullscreen;
-  const hint=()=>toast('iPhone: tap the aA button in the address bar, then Hide Toolbar');
+  const hint=()=>toast('iPhone: tap the page menu in the address bar (the ≡ or aA icon), then Hide Toolbar');
   if(rq){try{const r=rq.call(el);if(r&&r.catch)r.catch(hint);}catch(e){hint();}}else hint();
 }
 document.addEventListener('fullscreenchange',syncFs);document.addEventListener('webkitfullscreenchange',syncFs);
